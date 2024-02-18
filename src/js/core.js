@@ -234,6 +234,48 @@ function pushFundamentalsData(found = true) {
     show(document.getElementById("ht-fundamentals-container"));
 }
 
+function convertDataToCSV(quarterlyData, annualData) {
+    let csvContent = "data:text/csv;charset=utf-8,";
+    // Add headers for quarterly data
+    csvContent += "Date,Quarter,EPS,EPS %Change,EPS %Surprise,Revenue,Revenue %Change,Revenue %Surprise\n";
+
+    // Add quarterly data
+    quarterlyData.forEach(item => {
+        let quarter = getDisplayQuarter(item.name); // Adjusted to use the getDisplayQuarter function for quarter
+        let eps = item.eps.eps;
+        let epsChange = item.eps.perf;
+        let epsSurprise = item.eps.surprisePerf;
+        let revenue = numberWithCommas(item.rev.rev); // Adjusted to use the numberWithCommas function for revenue
+        let revenueChange = item.rev.perf;
+        let revenueSurprise = item.rev.surprisePerf;
+
+        csvContent += `${item.date},${quarter},${eps},${epsChange},${epsSurprise},${revenue},${revenueChange},${revenueSurprise}\n`;
+    });
+
+    // Add annual data in a similar way if needed
+    // ...
+
+    return csvContent;
+}
+
+// Function to trigger CSV download
+function downloadCSV(csvContent, ticker) {
+    console.log('Wait starts');
+    setTimeout(function() {
+    // This function is empty because you just want to wait
+    console.log('Wait ends');
+    }, 5000);
+    
+    var encodedUri = encodeURI(csvContent);
+    var link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", ticker + ".csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link); // Clean up
+}
+
+
 function displayEarnings(isContains) {
     extractAndProcessEarningsData();
     if (document.getElementById("ht-root-container") == null) {
@@ -257,6 +299,11 @@ function displayEarnings(isContains) {
     } else {
         pushEarningsData();
     }
+
+    // Convert data to CSV and download
+    let csvContent = convertDataToCSV(quarterlyData, annualData);
+    downloadCSV(csvContent, fundamentals.ticker);
+
     return;
 }
 
