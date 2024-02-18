@@ -4,6 +4,7 @@
 </p>
 
 **----**
+
 **Note: This fork adds two functions to core.js that converts the quarterly earnings table into a CSV file that is auto-downloaded:**
 
 ``downloadCSV(csvContent, ticker)``
