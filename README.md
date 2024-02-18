@@ -1,4 +1,4 @@
-<h1 align="center">Corporate Earnings</h1>
+<h1 align="center">Corporate Earnings DL</h1>
 <p align="center">
   <img src="https://github.com/rocketpoweryul/corporate-earnings-dl/blob/main/src/images/icon.png" width="75" height="75"/>
 </p>
