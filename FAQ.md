@@ -25,3 +25,8 @@ const HIGH_INST_CHANGE_COLOR = '#00FF00';
 
 ### Adding more features/data points
 * I am open to suggestions
+
+### How does the autodownload work in this fork ###
+* When the table has been generated, it will then create a CSV file with all the available quarterly earnings data and then automatically start a download in your browser of ``{ticker}.csv``. 
+* You can now use that CSV for any machine-readable needs! 
+* If you loop through many tickers, be sure to follow any scraping policy by the source site. As well make sure you leave sufficient time between tickers to allow the code to work, otherwise you will likely just end up downloading a blank CSV called ``undefined.csv``

@@ -3,7 +3,15 @@
   <img src="https://github.com/huskytrader/corporate-earnings/blob/main/src/images/icon.png" width="75" height="75"/>
 </p>
 
-**Note: This fork adds two functions to core.js that converts the quarterly earnings table into a CSV file that is auto-downloaded.**
+**----**
+**Note: This fork adds two functions to core.js that converts the quarterly earnings table into a CSV file that is auto-downloaded:**
+
+``downloadCSV(csvContent, ticker)``
+``convertDataToCSV(quarterlyData, annualData)``
+
+**Will repeaet with annual data and maybe other stuff when ready.**
+
+**----**
 
 *Corporate Earnings is a browser extension which displays earnings data in a format similar to MarketSmith*
 
