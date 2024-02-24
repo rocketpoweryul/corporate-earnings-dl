@@ -261,10 +261,6 @@ function convertDataToCSV(quarterlyData, annualData) {
 // Function to trigger CSV download
 function downloadCSV(csvContent, ticker) {
     console.log('Wait starts');
-    setTimeout(function() {
-    // This function is empty because you just want to wait
-    console.log('Wait ends');
-    }, 5000);
     
     var encodedUri = encodeURI(csvContent);
     var link = document.createElement("a");
